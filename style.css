@@ -1,0 +1,192 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+#main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #1c1e21;
+    margin: 0;
+}
+
+/* --- ESTILOS GENERALES DE BOTONES Y ENTRADAS --- */
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+button:hover {
+    transform: translateY(-1px);
+}
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* --- Secciones Específicas --- */
+#logout-button {
+    background-color: #d9534f;
+    color: white;
+}
+#logout-button:hover {
+    background-color: #c9302c;
+}
+
+.toolbar {
+    margin-bottom: 1.5rem;
+}
+
+#main-content h2 {
+    text-align: center;
+    color: #888;
+}
+
+/* --- Grid de Productos --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+.product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+}
+.product-card h3 { font-size: 1.1rem; margin: 0.5rem 0; }
+.product-card p { margin: 0.4rem 0; color: #666; }
+.product-card .price { font-weight: bold; color: #007bff; font-size: 1.2rem; }
+
+.add-to-cart-button {
+    background-color: #28a745;
+    color: white;
+    margin-top: 1rem;
+}
+.add-to-cart-button:hover {
+    background-color: #218838;
+}
+
+/* --- Carrito de Compras --- */
+#cart, #orders-history {
+    margin-top: 3rem;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1.5rem;
+}
+#cart h3, #orders-history h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+.cart-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0; }
+.cart-item span { flex: 1; }
+.cart-item .item-name { flex: 3; }
+.remove-from-cart-button { background-color: #ffc107; color: #333; padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+.cart-summary { text-align: right; }
+.cart-summary p { font-size: 1.2rem; font-weight: bold; }
+#customer-doc { display: block; width: 250px; margin: 0.5rem 0 0.5rem auto; }
+#create-order-button { background-color: #007bff; color: white; padding: 0.8rem 1.5rem; }
+#create-order-button:hover { background-color: #0056b3; }
+
+/* --- Tabla de Mis Órdenes --- */
+#orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+#orders-table th, #orders-table td {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    text-align: left;
+}
+#orders-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+#orders-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* --- Modal de Confirmación --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background-color: white;
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+}
+.modal-close:hover {
+    color: #333;
+}
+.modal-content h2 {
+    margin-top: 0;
+    color: #007bff;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+#modal-order-details p {
+    margin: 0.5rem 0;
+}
+#modal-order-details strong {
+    color: #555;
+}
